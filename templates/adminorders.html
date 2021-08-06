@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="text-align: center;">My orders</h1>
+{% for x in orders %}
+<div class="alert alert-warning" style="margin: 20px" role="alert">
+    <p style="text-align: center;">Name: {{x.user}}</p>
+    <p style="text-align: center;">Phone number: {{x.phoneno}}</p>
+    <p  style="text-align: center;">Address: {{x.address}}</p>
+    <p  style="text-align: center;">Items :{{x.orderitems}}</p>
+    <p style="text-align: center;"> Order status :{{x.orderstatus}}</p>
+    <div  class="container"style="width:220px;margin:auto">
+    <a  href="/acceptorder/{{x.id}}/" class="btn btn-success"> Accept</a>
+    <a  href="/declineorder/{{x.id}}/" class="btn btn-danger">Decline</a>
+</div>
+</div>
+{% endfor %}
+{% endblock %}
